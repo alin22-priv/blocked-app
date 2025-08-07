@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockd</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">B</div>
+      <h1 class="logo-text">Blockd</h1>
+    </div>
+    <div class="header-controls">
+      <button id="refreshBtn" class="refresh-btn" title="Refresh Data">
+        <span class="refresh-icon">↻</span>
+      </button>
+      
+    </div>
+  </header>
+
+  <!-- Stats Overview -->
+  <section class="stats-overview">
+    <div class="stat-card">
+      <div class="stat-value" id="todayTotal">0m</div>
+      <div class="stat-label">Today's Total</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="activeWebsite">None</div>
+      <div class="stat-label">Currently Tracking</div>
+    </div>
+  </section>
+
+  <!-- Live Pie Chart Section -->
+  <section class="chart-section">
+    <h2 class="section-title">Today's Activity</h2>
+    <div class="chart-container">
+      <canvas id="pieChart" width="220" height="220"></canvas>
+      <div class="chart-center-text">
+        <div id="chartCenterValue">0m</div>
+        <div class="chart-center-label">Total</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legend Section -->
+  <section class="legend-section">
+    <h3 class="legend-title">Legend</h3>
+    <div id="legendContainer" class="legend-container">
+      <!-- Legend items will be dynamically populated -->
+    </div>
+  </section>
+
+  <!-- Website List Section -->
+  <section class="website-list">
+    <h3 class="list-title">Websites</h3>
+    <div id="websiteContainer" class="website-container">
+      <!-- Website items will be dynamically populated -->
+    </div>
+  </section>
+
+  <!-- Footer Actions -->
+  <footer class="footer">
+    <button id="dashboardBtn" class="action-btn primary">
+      <span class="btn-icon">📊</span>
+      View Dashboard
+    </button>
+    <button id="blockedSitesBtn" class="action-btn secondary">
+      <span class="btn-icon">🚫</span>
+      Blocked Sites
+    </button>
+  </footer>
+
+  <!-- Loading State -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading your data...</div>
+  </div>
+
+  <!-- Error State -->
+  <div id="errorState" class="error-state hidden">
+    <div class="error-icon">⚠️</div>
+    <div class="error-message">Unable to load tracking data</div>
+    <button id="retryBtn" class="retry-btn">Try Again</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../utils/storage.js"></script>
+  <script src="../utils/timeTracker.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

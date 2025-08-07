@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blocked Sites - Focus Timer</title>
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon"><strong>B</strong></div>
+        <h1 class="logo-text"><strong>Blockd</strong></h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Left Panel - Quick Block Tabs -->
+    <aside class="quick-block-sidebar">
+      <h3 class="sidebar-title">Quick Block</h3>
+      <div class="quick-block-tabs">
+        <button class="quick-tab" data-domain="facebook.com">
+          <span class="tab-icon">📘</span>
+          <span class="tab-name">Facebook</span>
+        </button>
+        <button class="quick-tab" data-domain="youtube.com">
+          <span class="tab-icon">📺</span>
+          <span class="tab-name">YouTube</span>
+        </button>
+        <button class="quick-tab" data-domain="twitter.com">
+          <span class="tab-icon">🐦</span>
+          <span class="tab-name">Twitter</span>
+        </button>
+        <button class="quick-tab" data-domain="instagram.com">
+          <span class="tab-icon">📷</span>
+          <span class="tab-name">Instagram</span>
+        </button>
+        <button class="quick-tab" data-domain="reddit.com">
+          <span class="tab-icon">🤖</span>
+          <span class="tab-name">Reddit</span>
+        </button>
+        <button class="quick-tab" data-domain="tiktok.com">
+          <span class="tab-icon">🎵</span>
+          <span class="tab-name">TikTok</span>
+        </button>
+        <button class="quick-tab" data-domain="netflix.com">
+          <span class="tab-icon">🎬</span>
+          <span class="tab-name">Netflix</span>
+        </button>
+        <button class="quick-tab" data-domain="twitch.tv">
+          <span class="tab-icon">🎮</span>
+          <span class="tab-name">Twitch</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Panel -->
+    <main class="main-panel">
+      <!-- Add Site Section -->
+      <section class="add-site-section">
+        <h2 class="section-title">Block New Website</h2>
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="websiteInput" 
+            placeholder="Enter website (e.g., facebook.com, youtube.com)"
+            class="website-input"
+          >
+          <button id="addSiteBtn" class="add-btn">
+            <span class="btn-icon">🚫</span>
+            Block Site
+          </button>
+        </div>
+        <div class="input-help">
+          Enter just the domain name without www. or https://
+        </div>
+      </section>
+
+      <!-- Currently Blocked Sites -->
+      <section class="blocked-sites-section">
+        <div class="section-header">
+          <h3 class="section-subtitle">Currently Blocked</h3>
+          <div class="section-stats">
+            <span id="blockedCount">0</span> sites
+          </div>
+        </div>
+        
+        <div id="blockedSitesList" class="blocked-sites-list">
+          <!-- Blocked sites will be populated here -->
+        </div>
+        
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">🚫</div>
+          <div class="empty-title">No Sites Blocked Yet</div>
+          <div class="empty-description">
+            Add websites above to start blocking distracting content
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Math Challenge Modal -->
+  <div id="mathModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Math Challenge</h3>
+        <button class="modal-close" id="closeMathModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div id="challengeDescription" class="challenge-description">
+          Solve these problems to unblock this site:
+        </div>
+        
+        <div id="mathProblems" class="math-problems">
+          <!-- Math problems will be generated here -->
+        </div>
+        
+        <div class="challenge-actions">
+          <button id="submitAnswers" class="submit-btn">
+            <span class="btn-icon">✓</span>
+            Submit Answers
+          </button>
+          <button id="cancelChallenge" class="cancel-btn">Cancel</button>
+        </div>
+        
+        <div id="challengeResult" class="challenge-result hidden">
+          <!-- Results will be shown here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Processing...</div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="blocked.js"></script>
+</body>
+</html>

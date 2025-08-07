@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockd Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard-container">
+  <!-- Header -->
+  <header class="dashboard-header">
+      <div class="dashboard-header-inner">
+    <div class="header-content">
+      <div class="logo">
+            <div class="logo-icon">B</div>
+            <h1 class="logo-text">Blockd</h1>
+      </div>
+      <div class="header-controls">
+        <select id="timeRangeSelect" class="time-range-select">
+          <option value="today">Today</option>
+          <option value="week">This Week</option>
+          <option value="month">This Month</option>
+          <option value="custom">Custom Range</option>
+        </select>
+        <button id="refreshBtn" class="refresh-btn">
+          <span class="btn-icon">↻</span>
+          Refresh
+        </button>
+          </div>
+      </div>
+    </div>
+  </header>
+
+    <!-- Dashboard Title Section -->
+    <section class="dashboard-title-section">
+      <div class="dashboard-title">Dashboard</div>
+    </section>
+
+  <!-- Main Content -->
+  <main class="dashboard-main">
+    <!-- Overview Stats -->
+    <section class="overview-section">
+      <div class="stats-grid">
+        <div class="stat-card primary">
+          <div class="stat-icon">⏰</div>
+          <div class="stat-content">
+            <div class="stat-value" id="totalTimeToday">0h 0m</div>
+            <div class="stat-label">Total Time Today</div>
+            <div class="stat-change" id="todayChange">+0% from yesterday</div>
+          </div>
+            <div class="stat-tooltip">Total time spent on all tracked websites today.</div>
+        </div>
+        
+        <div class="stat-card secondary">
+          <div class="stat-icon">🌐</div>
+          <div class="stat-content">
+            <div class="stat-value" id="websitesVisited">0</div>
+            <div class="stat-label">Websites Visited</div>
+            <div class="stat-change" id="websitesChange">+0 new sites</div>
+          </div>
+            <div class="stat-tooltip">Number of unique websites you visited today.</div>
+        </div>
+        
+        <div class="stat-card accent">
+          <div class="stat-icon">📈</div>
+          <div class="stat-content">
+            <div class="stat-value" id="averageSession">0m</div>
+            <div class="stat-label">Avg Session Length</div>
+            <div class="stat-change" id="sessionChange">+0% improvement</div>
+          </div>
+            <div class="stat-tooltip">Average length of your browsing sessions today.</div>
+        </div>
+        
+        <div class="stat-card highlight">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-content">
+            <div class="stat-value" id="focusScore">0%</div>
+            <div class="stat-label">Focus Score</div>
+            <div class="stat-change" id="focusChange">Based on productivity</div>
+          </div>
+            <div class="stat-tooltip">Percentage of your time spent on productive (work) sites today.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tables Section - MOVED TO TOP -->
+    <section class="tables-section">
+      <div class="tables-grid">
+        <!-- Top Websites -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="table-title">Top Websites</h3>
+            <button class="table-action" id="viewAllWebsites">View All</button>
+          </div>
+          <div class="table-container">
+            <table id="websitesTable" class="data-table">
+              <thead>
+                <tr>
+                  <th>Website</th>
+                  <th>Time</th>
+                  <th>Sessions</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data will be populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Recent Sessions -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3 class="table-title">Recent Sessions</h3>
+            <button class="table-action" id="viewAllSessions">View All</button>
+          </div>
+          <div class="table-container">
+            <table id="sessionsTable" class="data-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Website</th>
+                  <th>Duration</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Data will be populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+      <div class="charts-grid">
+        <!-- Today's Breakdown -->
+        <div class="chart-card large">
+          <div class="chart-header">
+            <h3 class="chart-title">Activity Breakdown</h3>
+          </div>
+          <div class="chart-container">
+            <div id="todayChart"></div>
+          </div>
+        </div>
+
+        <!-- Weekly Trend -->
+        <div class="chart-card large">
+          <div class="chart-header">
+            <h3 class="chart-title">7-Day Trend Analysis</h3>
+          </div>
+          <div class="chart-container">
+            <div id="weeklyChart"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading analytics...</div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
