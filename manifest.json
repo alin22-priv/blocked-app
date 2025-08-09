@@ -7,10 +7,6 @@
   "permissions": [
     "storage",
     "tabs",
-    "activeTab",
-    "alarms",
-    "notifications",
-    "webNavigation",
     "declarativeNetRequest"
   ],
   

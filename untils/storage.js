@@ -27,7 +27,6 @@ class StorageManager {
         if (!settings) {
           await this.setSettings({
             trackingEnabled: true,
-            notifications: true,
             focusModeEnabled: false
           });
         }
